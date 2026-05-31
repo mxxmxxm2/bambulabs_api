@@ -853,14 +853,12 @@ class PrinterMQTTClient:
         """
         Set the nozzle temperature. Note P1 firmware version above 01.06 does
         not support M104. M109 is used instead (set and wait for temperature).
-        To prevent long wait times, if temperature is set to below 40 deg cel,
+        To prevent long wait times, if temperature is set to below 60 deg cel,
         no temperature is set, override flag is provided to circumvent this.
 
         Args:
-            temperature (int): The temperature to set the bed to
+            temperature (int): The temperature to set the nozzle to
             override (bool): Whether to override guards. Default to False
-        Args:
-            temperature (int): temperature to set the nozzle to
 
         Returns:
             bool: success of setting the nozzle temperature
@@ -870,8 +868,8 @@ class PrinterMQTTClient:
         else:
             if temperature < 60 and not override:
                 logger.warning(
-                    "Attempting to set low bed temperature not recommended. "
-                    "Set override flag to true to if you're sure you want to "
+                    "Attempting to set low nozzle temperature not recommended. "
+                    "Set override flag to true if you're sure you want to "
                     f"run M109 S{temperature};"
                 )
                 return False
