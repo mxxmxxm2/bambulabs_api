@@ -106,8 +106,8 @@ class PrinterFTPClient:
         def upload_callback(data: bytes):
             nonlocal total_bytes
             total_bytes += len(data)
-            logging.info(f"Total uploaded {total_bytes} bytes")
-            logging.debug(f"Uploaded {data} bytes")
+            logger.info(f"Total uploaded {total_bytes} bytes")
+            logger.debug(f"Uploaded {data} bytes")
 
         return self.ftps.storbinary(
             f'STOR {file_path}', 
