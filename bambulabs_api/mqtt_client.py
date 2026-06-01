@@ -516,20 +516,19 @@ class PrinterMQTTClient:
 
     def set_onboard_printer_timelapse(self, enable: bool = True):
         """
-        Enable/disable the printer's onboard timelapse/video
-        functionality.
+        Enable/disable the printer's onboard timelapse/video functionality.
 
         Args:
-            enable (bool): object list to skip objects.
+            enable (bool): True to enable recording, False to disable it.
                 Defaults to True.
 
         Returns:
-            bool: if publish command is successful.
+            bool: True if the publish command is successful, False otherwise.
         """
         return self.__publish_command({
             "camera": {
                 "command": "ipcam_record_set",
-                "control": "disable" if not enable else "enable"
+                "control": "enable" if enable else "disable"
             }
         })
 
