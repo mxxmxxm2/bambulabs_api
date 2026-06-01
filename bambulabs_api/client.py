@@ -347,7 +347,7 @@ class Printer:
         return "No file uploaded."
 
     def start_print(self, filename: str,
-                    plate_number: int | str,
+                    plate_number: int | str = 1,
                     use_ams: bool = True,
                     ams_mapping: list[int] = [0],
                     skip_objects: list[int] | None = None,
