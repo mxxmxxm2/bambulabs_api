@@ -470,7 +470,8 @@ class PrinterMQTTClient:
                         ams_mapping: list[int] = [0],
                         skip_objects: list[int] | None = None,
                         flow_calibration: bool = True,
-                        ) -> bool:
+                        bed_leveling: bool = True,
+        ) -> bool:
         """
         Start the print
 
@@ -500,7 +501,7 @@ class PrinterMQTTClient:
                     "command": "project_file",
                     "param": plate_location,
                     "file": filename,
-                    "bed_leveling": True,
+                    "bed_leveling": bool(bed_leveling),
                     "bed_type": "textured_plate",
                     "flow_cali": bool(flow_calibration),
                     "vibration_cali": True,

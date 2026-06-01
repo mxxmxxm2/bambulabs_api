@@ -352,7 +352,8 @@ class Printer:
                     ams_mapping: list[int] = [0],
                     skip_objects: list[int] | None = None,
                     flow_calibration: bool = True,
-                    ) -> bool:
+                    bed_leveling: bool = True,
+        ) -> bool:
         """
         Start printing a file.
 
@@ -383,7 +384,8 @@ class Printer:
                                                 use_ams,
                                                 ams_mapping,
                                                 skip_objects,
-                                                flow_calibration)
+                                                flow_calibration,
+                                                bed_leveling)
 
     def stop_print(self) -> bool:
         """
